@@ -1,0 +1,8 @@
+node_modules/
+.env
+test-results/
+playwright-report/
+native-run-report.json
+recording.config.cjs
+recording-reporter.cjs
+.vscode/

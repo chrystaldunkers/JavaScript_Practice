@@ -1,0 +1,17 @@
+{
+  "name": "day-35-pom-framework",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:policy": "playwright test tests/account-policy.spec.js",
+    "test:quote": "playwright test tests/quote-coverage.spec.js",
+    "test:headed": "playwright test --headed",
+    "report": "playwright show-report --host 127.0.0.1 --port 9328"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
