@@ -1,0 +1,9 @@
+{
+  "name": "rtqa-day36-data-driven-testing-and-files",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "@playwright/test": "1.62.1",
+    "dotenv": "18.0.7"
+  }
+}

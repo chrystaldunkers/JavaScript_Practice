@@ -1,0 +1,22 @@
+[
+  {
+    "id": "minimum-age",
+    "inputs": { "age": "16", "yearsLicensed": "1" }
+  },
+  {
+    "id": "typical-driver",
+    "inputs": { "age": "35", "yearsLicensed": "10" }
+  },
+  {
+    "id": "maximum-age",
+    "inputs": { "age": "100", "yearsLicensed": "60" }
+  },
+  {
+    "id": "experienced-driver",
+    "inputs": { "age": "45", "yearsLicensed": "25" }
+  },
+  {
+  "id": "younger-same-experience",
+  "inputs": { "age": "30", "yearsLicensed": "10" }
+}
+]
