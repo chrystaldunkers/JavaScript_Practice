@@ -1,0 +1,17 @@
+{
+  "method": "GET",
+  "path": "/api/public/quotes?limit=2&offset=0",
+  "status": 200,
+  "contentType": "application/json",
+  "keys": [
+    "count",
+    "total",
+    "limit",
+    "offset",
+    "data"
+  ],
+  "dataIsArray": true,
+  "count": 2,
+  "limit": 2,
+  "offset": 0
+}
