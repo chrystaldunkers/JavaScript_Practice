@@ -1,0 +1,7 @@
+Review this labelled classroom Playwright timing exercise.
+The fixture holds Meridian's real rating-data response for 3000 ms on the initial attempt and uses normal delivery on retry.
+The test pauses for 1000 ms, then runs expect(await ratingCount.isVisible()).toBe(true).
+The CI report shows Expected true, Received false on the initial attempt, followed by a passing retry.
+Playwright reports one flaky test and exits with code 1 because failOnFlakyTests is true.
+Propose one small repair and a short explanation in three sentences. Keep the requirement that the live positive rating count is visible.
+Do not change the application response, remove assertions, add retries or invent a product defect. Propose the edit for human review.

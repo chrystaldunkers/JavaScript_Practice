@@ -1,0 +1,49 @@
+name: Day 39 Meridian checks
+on:
+  push:
+    branches: [main]
+    paths: ['day-39-ci-cd-and-flaky-test-triage/**', '.github/workflows/day39-meridian.yml']
+  pull_request:
+    branches: [main]
+    paths: ['day-39-ci-cd-and-flaky-test-triage/**', '.github/workflows/day39-meridian.yml']
+  workflow_dispatch:
+    inputs:
+      exercise:
+        description: Choose the smoke suite or controlled timing exercise
+        type: choice
+        options: [smoke, timing]
+        default: smoke
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: day-39-ci-cd-and-flaky-test-triage
+    env:
+      LESSON_EXERCISE: ${{ inputs.exercise || 'smoke' }}
+      PLAYWRIGHT_JSON_OUTPUT_FILE: test-results/results.json
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: day-39-ci-cd-and-flaky-test-triage/package-lock.json
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Run Meridian tests
+        run: npx playwright test
+      - name: Save report and failure evidence
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: day39-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            day-39-ci-cd-and-flaky-test-triage/playwright-report/
+            day-39-ci-cd-and-flaky-test-triage/test-results/
+          retention-days: 7
