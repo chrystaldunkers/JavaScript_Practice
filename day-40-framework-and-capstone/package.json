@@ -1,0 +1,23 @@
+{
+  "name": "day-40-framework-and-capstone",
+  "private": true,
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "clean": "node scripts/clean-results.js",
+    "test": "npm run clean && playwright test",
+    "test:policy": "npm run clean && playwright test tests/account-policy.spec.js",
+    "test:quote": "npm run clean && playwright test tests/quote-coverage.spec.js",
+    "test:api": "npm run clean && playwright test tests/quotes-api.spec.js",
+    "test:headed": "npm run clean && playwright test --headed",
+    "report:generate": "allure generate allure-results --output allure-report --clean",
+    "report:open": "allure open allure-report",
+    "report:playwright": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "allure-playwright": "3.14.0",
+    "allure": "3.33.0"
+  }
+}
