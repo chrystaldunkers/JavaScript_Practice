@@ -16,6 +16,7 @@ test('reach Coverage without saving', async ({ login, account, quote }) => {
     await quote.fillDriver({ name: driver.name, email: credentials.email });
     await expect(quote.driverName).toHaveValue(driver.name);
     await expect(quote.email).toHaveValue(credentials.email);
+    await expect(quote.continueButton).toBeEnabled();
   });
   await test.step('Continue to Vehicle and Coverage', async () => {
     await quote.continueToVehicle();
